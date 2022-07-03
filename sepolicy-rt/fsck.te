@@ -1,3 +1,7 @@
 #============= fsck ==============
 allow fsck block_device:blk_file { ioctl open read write };
 
+# fsck.exfat
+# W fsck.exfat: type=1400 audit(0.0:127): avc: denied { open } for path="/sys/devices/15400000.usb/15400000.dwc3/xhci-hcd.4.auto/usb1/1-1/1-1:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1/start" dev="sysfs" ino=19323 scontext=u:r:fsck_untrusted:s0 tcontext=u:object_r:sysfs:s0 tclass=file
+# W fsck.exfat: type=1400 audit(0.0:128): avc: denied { getattr } for path="/sys/devices/15400000.usb/15400000.dwc3/xhci-hcd.4.auto/usb1/1-1/1-1:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1/start" dev="sysfs" ino=19323 scontext=u:r:fsck_untrusted:s0 tcontext=u:object_r:sysfs:s0 tclass=file
+allow fsck_untrusted sysfs:file { getattr open read };
