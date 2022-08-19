@@ -21,6 +21,7 @@ allow init hal_power_hwservice:hwservice_manager { add find };
 allow init hidl_base_hwservice:hwservice_manager add;
 allow init hwservicemanager:binder { call transfer };
 allow init kernel:system module_request;
+allow init kernel:security check_context;
 allow init netd:unix_stream_socket connectto;
 allow init port:tcp_socket name_connect;
 allow init proc:file setattr;
@@ -43,4 +44,4 @@ allow init system_server:binder transfer;
 allow init system_server:unix_stream_socket read;
 allow init vendor_file:file execute_no_trans;
 allow init vndbinder_device:chr_file rw_file_perms;
-
+allow init seapp_contexts_file:file r_file_perms;

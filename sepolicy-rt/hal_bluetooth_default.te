@@ -3,4 +3,4 @@ allow hal_bluetooth_default bluetooth_device:chr_file rw_file_perms;
 allow hal_bluetooth_default bluetooth_efs_file:dir search;
 allow hal_bluetooth_default efs_file:dir search;
 allow hal_bluetooth_default sysfs:file write;
-
+allow hal_bluetooth_default vendor_firmware_file:dir r_file_perms;

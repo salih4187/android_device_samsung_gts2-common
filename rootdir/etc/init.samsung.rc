@@ -549,6 +549,8 @@ on boot
     chown system radio /sys/class/sensors/magnetic_sensor/vendor
     chown system radio /sys/class/sensors/magnetic_sensor/name
     chown system radio /sys/class/sensors/magnetic_sensor/status
+# Hall sensor
+    chown system radio /sys/class/sec/sec_key/hall_irq_ctrl
 # MPL IIO
     chown system system /dev/invensense
     chown system system /sys/bus/iio/devices/invensense/buffer/enable
@@ -596,6 +598,7 @@ on charger
     copy /system/vendor/firmware/battery_data.dat /efs/Battery/battery_data.dat
     chmod 0400 /efs/Battery/battery_data.dat
     write /sys/class/power_supply/battery/batt_update_data "/efs/Battery/battery_data.dat"
+    class_start charger
 
     service charger /system/bin/charger
         class charger

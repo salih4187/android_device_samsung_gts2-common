@@ -2,4 +2,5 @@ allow charger device:dir r_dir_perms;
 allow charger proc:file r_file_perms;
 allow charger sysfs:file r_file_perms;
 allow charger sysfs_sensor:file r_file_perms;
-allow charger sysfs_sensor:lnk_file { read };
+allow charger sysfs_sensor:lnk_file { open read };
+allow charger proc_last_kmsg:file { getattr open read };
